@@ -1,0 +1,68 @@
+<form #signupform="ngForm" (ngSubmit)="registeruser(signupform)">
+  <div class="form-group">
+    <label for="userName">User Name</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">@</span>
+      </div>
+      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="userName"
+        [ngModel]="user.userName" required #userName="ngModel" />
+
+    </div>
+    <div id="userValidation" *ngIf="userName.invalid && (userName.dirty || userName.touched) " class="form-text text-muted alert alert-danger">
+      <div id="userValidationRequired" *ngIf="userName.errors?.required"> User Name is required.</div>
+    </div>
+  </div>
+  <div ngModelGroup="passwordGrp" #passwordGrp="ngModelGroup">
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" [ngModel]="user.passwordGrp.password"  minlength="6" required/>
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword2">Confirm Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" name="confirmPassword"
+        [ngModel]="user.passwordGrp.confirmPassword"  minlength="6" required/>
+    </div>
+    <div id="passwordValidation" 
+    *ngIf="(passwordGrp.invalid || passwordGrp.value?.password!=passwordGrp.value?.confirmPassword) &&  passwordGrp.touched " class="form-text text-muted alert alert-danger">
+        <div id="passwordValidation" *ngIf="passwordGrp.invalid;else noMatchTemplate">Password should be at least 6 characters.</div>
+      </div>
+      <ng-template #noMatchTemplate>
+        Passwords don't match.
+      </ng-template>
+  </div>
+  <div class="form-group">
+    <label for="inputGender">Gender</label>
+    <select id="inputgender" class="form-control" name="gender" [ngModel]="user.gender">
+      <option selected value="">Choose...</option>
+      <option *ngFor="let g of gender" value="{{g.value}}">{{g.label}}</option>
+
+    </select>
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="term" [ngModel]="user.term">
+    <label class="form-check-label" for="exampleCheck1">I Agree to terms and conditions</label>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"
+      [ngModel]="user.email" required #email="ngModel" pattern="/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <div id="emailValidation" *ngIf="email.invalid && (email.dirty || email.touched) " class="alert alert-danger">
+      <div id="emailValidationRequired" *ngIf="email.errors?.required"> Email is required.</div>
+      <div id="emailValidationRequired" *ngIf="email.errors?.pattern && email.touched"> Email format is in correct.</div>
+      
+    </div>
+  </div>
+
+  <div class="form-row col-6">
+    <button type="submit" class="btn btn-primary" id="reset" name="reset" style="margin: 5px;">Reset</button>
+    <button type="submit" class="btn btn-primary" id="submitbtn" name="submitbtn" [disabled]="!signupform.form.valid">Submit</button>
+  </div>
+
+
+</form>
+signup form: {{ signupform.value | json }}
+<br/> user details {{ user| json }}
+<br/>
