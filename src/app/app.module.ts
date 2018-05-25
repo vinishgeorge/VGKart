@@ -19,7 +19,7 @@ const route: Routes = [
   { path: "product", component: ProductComponent },
   {
     path: "register", component: RegisterComponent, 
-    children: [{ path: "signup", component: SignupComponentComponent },
+    children: [{ path: "signup", component: SignupReactiveComponent },
     { path: "login", component: LoginComponentComponent }]
   },
   { path: "cart", component: CartComponent }
