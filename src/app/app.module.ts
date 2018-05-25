@@ -11,6 +11,7 @@ import { ItemComponent } from './item/item.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { SignupComponentComponent } from './signup-component/signup-component.component';
+import { SignupReactiveComponent } from './signup-reactive/signup-reactive.component';
 
 const route: Routes = [
   { path: "", component: HomeComponent },
@@ -35,7 +36,8 @@ const route: Routes = [
     CartComponent,
     ItemComponent,
     LoginComponentComponent,
-    SignupComponentComponent
+    SignupComponentComponent,
+    SignupReactiveComponent
 
   ],
   imports: [
