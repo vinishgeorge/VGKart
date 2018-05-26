@@ -22,12 +22,19 @@ const route: Routes = [
   { path: "", component: HomeComponent },
   { path: "item", component: ItemComponent },
   { path: "product", component: ProductComponent,
-  children:[{path:"add",component:AddProductComponentComponent},
-  {path:"details",component:DetailProductComponent}]
+  children:[
+  {path:"add",component:AddProductComponentComponent},
+  {path:"detail/:id",component:DetailProductComponent},
+  {path:"details",component:DetailProductComponent},
+  {path:"update/:id",component:AddProductComponentComponent}
+  
+
+]
 },
   {
     path: "register", component: RegisterComponent, 
-    children: [{ path: "signup", component: SignupReactiveComponent },
+    children: [
+    { path: "signup", component: SignupReactiveComponent },
     { path: "login", component: LoginComponentComponent }]
   },
   { path: "cart", component: CartComponent }

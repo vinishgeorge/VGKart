@@ -1,26 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "value": "M",
-      "name": "Motorola"
-    },
-    {
-      "id": 2,
-      "value": "S",
-      "name": "Samsung"
-    },
-    {
-      "id": 3,
-      "value": "A",
-      "name": "Apple"
-    },
-    {
-      "id": 4,
-      "value": "X",
-      "name": "Xiomi"
-    },
-    {
       "id": 5,
       "value": "SO",
       "name": "Sony"
@@ -31,13 +11,13 @@
       "id": 6
     },
     {
-      "value": "B",
-      "name": "Bharat",
+      "value": "M",
+      "name": "Motorola",
       "id": 7
     },
     {
-      "value": "V",
-      "name": "Vinish",
+      "value": "MI",
+      "name": "XIOMI",
       "id": 8
     }
   ]

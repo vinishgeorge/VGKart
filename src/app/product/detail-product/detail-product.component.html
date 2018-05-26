@@ -1,6 +1,44 @@
-<div class="container text-left">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" *ngFor="let item of itemList;let i=index">{{item.id}}. {{item.name}}</li>
-    </ul>
-  
-  </div>
+<div class="container text-left" *ngIf="itemList.length>0">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let item of itemList;let i=index">
+      <div class="row">
+        <div class="col-sm-1">Id</div>
+        <div class="col-sm-3">NAME</div>
+        <div class="col-sm-2">VALUE</div>
+        <div class="col-sm-6 text-center">ACTIONS</div>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-1">{{item.id}}.</div>
+        <div class="col-sm-3">{{item.name}}</div>
+        <div class="col-sm-2">{{50000|currency:'INR'}}</div>
+        <div class="col-sm-6">
+          <span class=" float-right">
+            <a class="nav-link" (click)="deleteItem(item.id)">Delete</a>
+          </span>
+          <span class=" float-right">
+            <a class="nav-link" [routerLink]="['/product/update',item.id]">Update</a>
+          </span>
+
+          <span class=" float-right">
+            <a class="nav-link" [routerLink]="['/product/detail',item.id]">View</a>
+          </span>
+        </div>
+
+      </div>
+
+    </li>
+  </ul>
+
+</div>
+<div class="container text-left" *ngIf="item">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Item id: {{item.id}}.
+    </li>
+    <li class="list-group-item">Item name: {{item.name}}
+    </li>
+    <li class="list-group-item">Item value: {{item.value}}
+    </li>
+  </ul>
+
+</div>

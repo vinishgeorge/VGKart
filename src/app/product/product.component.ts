@@ -12,12 +12,12 @@ import {Http,Response} from '@angular/http'
 export class ProductComponent implements OnInit {
 
   
- 
+  
   constructor(private dataService: DataService,private http:Http) { }
 
   ngOnInit() {
 
-    
+   
   
     
 
