@@ -1,29 +1,44 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "value": "M",
-            "name": "Motorola"
-        },
-        {
-            "id": 2,
-            "value": "S",
-            "name": "Samsung"
-        },
-        {
-            "id": 3,
-            "value": "A",
-            "name": "Apple"
-        },
-        {
-            "id": 4,
-            "value": "X",
-            "name": "Xiomi"
-        },
-        {
-            "id": 5,
-            "value": "SO",
-            "name": "Sony"
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "value": "M",
+      "name": "Motorola"
+    },
+    {
+      "id": 2,
+      "value": "S",
+      "name": "Samsung"
+    },
+    {
+      "id": 3,
+      "value": "A",
+      "name": "Apple"
+    },
+    {
+      "id": 4,
+      "value": "X",
+      "name": "Xiomi"
+    },
+    {
+      "id": 5,
+      "value": "SO",
+      "name": "Sony"
+    },
+    {
+      "value": "N",
+      "name": "Nokia",
+      "id": 6
+    },
+    {
+      "value": "B",
+      "name": "Bharat",
+      "id": 7
+    },
+    {
+      "value": "V",
+      "name": "Vinish",
+      "id": 8
+    }
+  ]
 }

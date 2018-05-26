@@ -14,14 +14,16 @@ import { SignupComponentComponent } from './signup-component/signup-component.co
 import { SignupReactiveComponent } from './signup-reactive/signup-reactive.component';
 import { DataService } from './service/data-service.service';
 import {  HttpModule } from '@angular/http';
+import { AddProductComponentComponent } from './product/add-product-component/add-product-component.component';
+import { DetailProductComponent } from './product/detail-product/detail-product.component';
 
 
 const route: Routes = [
   { path: "", component: HomeComponent },
   { path: "item", component: ItemComponent },
   { path: "product", component: ProductComponent,
-  children:[{path:"add",component:ProductComponent},
-  {path:"details",component:ProductComponent}]
+  children:[{path:"add",component:AddProductComponentComponent},
+  {path:"details",component:DetailProductComponent}]
 },
   {
     path: "register", component: RegisterComponent, 
@@ -43,7 +45,9 @@ const route: Routes = [
     ItemComponent,
     LoginComponentComponent,
     SignupComponentComponent,
-    SignupReactiveComponent
+    SignupReactiveComponent,
+    AddProductComponentComponent,
+    DetailProductComponent
 
   ],
   imports: [
