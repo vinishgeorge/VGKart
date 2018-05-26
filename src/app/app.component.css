@@ -1,0 +1,9 @@
+a{
+    color: white;
+}
+a:hover{
+    color: lightgray;
+}
+.mg-5{
+    margin: 5px !important;
+}

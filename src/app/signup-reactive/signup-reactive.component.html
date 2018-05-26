@@ -1,6 +1,6 @@
-<form [formGroup]="signupform">
+<form [formGroup]="signupform" (ngSubmit)="registerUser();">
   <div class="form-group">
-    <label for="userName">User Name</label>
+    <!-- <label for="userName">User Name</label> -->
     <div class="input-group">
       <div class="input-group-prepend">
         <span class="input-group-text" id="basic-addon1">@</span>
@@ -8,36 +8,43 @@
       <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="userName"
         formControlName="userName" />
     </div>
-
+    <div class="alert alert-danger" *ngIf="(signupform.get('userName').hasError('required') && signupform.get('userName').touched)">User name required.</div>
   </div>
 
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" minlength="6"
-      required formControlName="password" />
-
+    <!-- <label for="exampleInputPassword1">Password</label> -->
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" formControlName="password"
+    />
+    <div class="alert alert-danger" *ngIf="(signupform.get('password').invalid && signupform.get('password').touched)">
+      <div class="alert alert-danger" *ngIf="signupform.get('password').hasError('required')">Password is required.</div>
+      <div class="alert alert-danger" *ngIf="signupform.get('password').hasError('minlength')">Password should be at leaste 6 chrarecters.</div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword2">Confirm Password</label>
+    <!-- <label for="exampleInputPassword2">Confirm Password</label> -->
     <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" name="confirmPassword"
-      formControlName="confirmPassword" minlength="6" required/>
+      formControlName="confirmPassword" />
+    <div class="alert alert-danger" *ngIf="(signupform.get('confirmPassword').invalid && signupform.get('confirmPassword').touched)">
+      <div class="alert alert-danger" *ngIf="signupform.get('confirmPassword').hasError('required')">Confirm Password is required.</div>
+      <div class="alert alert-danger" *ngIf="signupform.get('confirmPassword').hasError('minlength')">Confirm Password should be at leate 6 chrarecters.</div>
+    </div>
   </div>
 
 
   <div class="form-group">
-    <label for="inputGender">Gender</label>
+    <!-- <label for="inputGender">Gender</label> -->
     <select id="inputgender" class="form-control" formControlName="gender">
-      <option selected value="">Choose...</option>
+      <option selected value="">Choose Gender...</option>
       <option *ngFor="let g of gender" value="{{g.value}}">{{g.label}}</option>
 
     </select>
   </div>
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1" name="term" formControlName="terms">
-    <label class="form-check-label" for="exampleCheck1">I Agree to terms and conditions</label>
+    <label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <!-- <label for="exampleInputEmail1">Email address</label> -->
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email"
       formControlName="email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -45,11 +52,16 @@
   </div>
 
   <div class="form-row col-6">
-    <button type="submit" class="btn btn-primary" id="reset" name="reset" style="margin: 5px;">Reset</button>
-    <button type="submit" class="btn btn-primary" id="submitbtn" name="submitbtn">Submit</button>
+    <button type="submit" class="btn btn-primary mg-5" id="reset" name="reset">Reset</button>
+    <button type="submit" class="btn btn-primary mg-5" id="submitbtn" name="submitbtn" [disabled]="signupform.invalid">Submit</button>
   </div>
 
 
 </form>
 
-<p></p>
+<p>
+  {{ signupform.value |json }} {{ signupform.invalid }}
+</p>
+<p>
+    {{ user |json }} 
+  </p>
