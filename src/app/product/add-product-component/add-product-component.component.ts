@@ -27,6 +27,7 @@ export class AddProductComponentComponent implements OnInit {
     console.log(this.itemObject);
     this.http.post("http://localhost:4000/products",this.itemObject).subscribe((resp:Response)=>{
       alert("product added");
+      this.itemForm.reset();
     });
   }
 }
